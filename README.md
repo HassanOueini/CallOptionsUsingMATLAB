@@ -9,56 +9,54 @@ This repository contains an overview of three different methods for pricing Euro
 
 The price of a European call option using the Black-Scholes formula is given by:
 
-\[
-C = S_0 \Phi(d_1) - K e^{-rT} \Phi(d_2)
-\]
+$$ C = S_0 \Phi(d_1) - K e^{-rT} \Phi(d_2) $$
 
 Where:
 - \( S_0 \): Initial stock price
 - \( K \): Strike price
 - \( T \): Time to maturity
 - \( r \): Risk-free interest rate
-- \( \Phi(x) \): Cumulative distribution function of the standard normal distribution
-- \( \sigma \): Volatility of the underlying asset
+- \( $\Phi(x)$ \): Cumulative distribution function of the standard normal distribution
+- \( $\sigma$ \): Volatility of the underlying asset
 
-The terms \( d_1 \) and \( d_2 \) are defined as:
+The terms $d_1$ and $d_2$ are defined as:
 
-\[
+$$
 \begin{aligned}
 d_1 &= \frac{\ln(S_0 / K) + \left(r + \frac{\sigma^2}{2}\right)T}{\sigma \sqrt{T}}, \\
 d_2 &= d_1 - \sigma \sqrt{T}
 \end{aligned}
-\]
+$$
 
 ## 2. Crank-Nicolson Method (Numerical PDE Solver)
 
 The Black-Scholes partial differential equation (PDE) is:
 
-\[
+$$
 \frac{\partial V}{\partial t} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + r S \frac{\partial V}{\partial S} - r V = 0
-\]
+$$
 
 ### Discretized Crank-Nicolson Scheme
 
 The Crank-Nicolson method discretizes the PDE into:
 
-\[
-A V^{n+1} = B V^n
-\]
+$$
+A V^{n+1} = B V^n 
+$$
 
 Where:
-- \( A \) and \( B \) are tridiagonal matrices representing the spatial derivative discretization.
-- \( V^n \) and \( V^{n+1} \) are the option values at times \( t^n \) and \( t^{n+1} \).
+- \ $A$ \ and \ $B$ \ are tridiagonal matrices representing the spatial derivative discretization.
+- \ $V^n$ \ and \ $V^{n+1}$ \ are the option values at times \ $t^n$ \ and \ $t^{n+1}$ \.
 
-This method solves the system iteratively backward in time from \( T \) to \( t = 0 \).
+This method solves the system iteratively backward in time from \ $T$ \ to \ $t = 0$ \.
 
 ## 3. Monte Carlo Simulation (Stochastic Approach)
 
 The Monte Carlo method simulates the stock price under the **geometric Brownian motion (GBM)** model:
 
-\[
+$$
 dS_t = r S_t \, dt + \sigma S_t \, dW_t
-\]
+$$
 
 Where:
 - \( r \): Risk-free interest rate.
@@ -67,9 +65,9 @@ Where:
 
 ### Discretized GBM Solution
 
-\[
+$$
 S_{i+1} = S_i \exp\left(\left(r - \frac{\sigma^2}{2}\right)\Delta t + \sigma \sqrt{\Delta t} Z_i\right)
-\]
+$$
 
 Where:
 - \( Z_i \): Independent standard normal random variables.
