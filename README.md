@@ -45,10 +45,10 @@ A V^{n+1} = B V^n
 $$
 
 Where:
-- \ $A$ \ and \ $B$ \ are tridiagonal matrices representing the spatial derivative discretization.
-- \ $V^n$ \ and \ $V^{n+1}$ \ are the option values at times \ $t^n$ \ and \ $t^{n+1}$ \.
+- $A$ and $B$ are tridiagonal matrices representing the spatial derivative discretization.
+- $V^n$ and $V^{n+1}$ are the option values at times $t^n$ and $t^{n+1}$.
 
-This method solves the system iteratively backward in time from \ $T$ \ to \ $t = 0$ \.
+This method solves the system iteratively backward in time from $T$ to $t = 0$.
 
 ## 3. Monte Carlo Simulation (Stochastic Approach)
 
@@ -59,9 +59,9 @@ dS_t = r S_t \, dt + \sigma S_t \, dW_t
 $$
 
 Where:
-- \( r \): Risk-free interest rate.
-- \( \sigma \): Volatility.
-- \( W_t \): Standard Brownian motion.
+- r: Risk-free interest rate.
+- $\sigma$: Volatility.
+- $W_t$: Standard Brownian motion.
 
 ### Discretized GBM Solution
 
@@ -70,26 +70,26 @@ S_{i+1} = S_i \exp\left(\left(r - \frac{\sigma^2}{2}\right)\Delta t + \sigma \sq
 $$
 
 Where:
-- \( Z_i \): Independent standard normal random variables.
+- $Z_i$: Independent standard normal random variables.
 
 ### Option Price Using Monte Carlo
 
 The option price is calculated as the discounted expected payoff:
 
-\[
+$$
 V \approx e^{-rT} \frac{1}{M} \sum_{i=1}^M \max(S_T^{(i)} - K, 0)
-\]
+$$
 
 Where:
-- \( M \): Number of simulated paths.
-- \( S_T^{(i)} \): Terminal stock price for the \( i \)-th path.
+- M: Number of simulated paths.
+- $S_T^{(i)}$: Terminal stock price for the \( i \)-th path.
 
 ## Summary of Methods
 
 | **Aspect**          | **Black-Scholes**              | **Crank-Nicolson**              | **Monte Carlo**                 |
 |---------------------|--------------------------------|--------------------------------|---------------------------------|
 | **Type**           | Analytical solution            | Numerical PDE solver           | Stochastic simulation          |
-| **Key Inputs**     | \( S_0, K, T, r, \sigma \)     | \( S_0, K, T, r, \sigma, \Delta S, \Delta t \) | \( S_0, K, T, r, \sigma, M, N \) |
+| **Key Inputs**     | \( S_0, K, T, r, $\sigma$ \)     | \( S_0, K, T, r, $\sigma$, $\Delta S$,$\Delta t$ \) | \( S_0, K, T, r, $\sigma$, M, N \) |
 | **Speed**          | Very fast                     | Moderate                       | Slower (depends on simulations)|
 | **Accuracy**       | Exact (under assumptions)      | Approximate (grid-dependent)   | Approximate (path-dependent)   |
 | **Flexibility**    | Limited (constant volatility)  | Flexible (exotics/features)    | Highly flexible                |
