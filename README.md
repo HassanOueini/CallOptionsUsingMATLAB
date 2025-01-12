@@ -89,7 +89,7 @@ Where:
 | **Aspect**          | **Black-Scholes**              | **Crank-Nicolson**              | **Monte Carlo**                 |
 |---------------------|--------------------------------|--------------------------------|---------------------------------|
 | **Type**           | Analytical solution            | Numerical PDE solver           | Stochastic simulation          |
-| **Key Inputs**     | \( S_0, K, T, r, $\sigma$ \)     | \( S_0, K, T, r, $\sigma$, $\Delta S$,$\Delta t$ \) | \( S_0, K, T, r, $\sigma$, M, N \) |
+| **Key Inputs**     | \( S_0, K, T, r, $\sigma$ \)     | \( S_0, K, T, r, $\sigma$, $\Delta S$, $\Delta t$ \) | \( S_0, K, T, r, $\sigma$, M, N \) |
 | **Speed**          | Very fast                     | Moderate                       | Slower (depends on simulations)|
 | **Accuracy**       | Exact (under assumptions)      | Approximate (grid-dependent)   | Approximate (path-dependent)   |
 | **Flexibility**    | Limited (constant volatility)  | Flexible (exotics/features)    | Highly flexible                |
